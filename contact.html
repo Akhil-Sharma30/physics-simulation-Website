@@ -1,0 +1,33 @@
+<?php
+if(isset($_POST['submit'])){
+    $to = "email@example.com"; // this is your Email address
+    $from = $_POST['email']; // this is the sender's Email address
+    $name= $_POST['name'];
+    $subject = "Form submission"
+    $subject2 = "Copy of your form submission";
+    $message = "$name . " wrote the following:" . "\n\n" . $_POST['message'];
+    $message2 = "Here is a copy of your message " . $first_name . "\n\n" . $_POST['message'];
+
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    mail($to,$subject,$message,$headers);
+    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+    echo "Mail Sent. Thank you " . $first_name . ", we will contact you shortly.";
+    // You can also use header('Location: thank_you.php'); to redirect to another page.
+    }
+?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="viewpoint" content="width=device-width,initial-scale-=1.0">
+    <link rel="shortcut icon" type="img/jpg" href="img/fav.jpg">
+    <title>HOMEPAGE</title>
+  </head>
+  <body>
+
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScYvSUHDvRZ2sDXtF8Mnf3b32b_q75DpJzKLrYCh2PrYAgiiQ/viewform?embedded=true" width="100%" height="943"
+    frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </body>
+</html>
